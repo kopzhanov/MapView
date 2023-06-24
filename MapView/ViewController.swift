@@ -10,7 +10,12 @@ import MapKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var distanceLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var image: UIImageView!
+    
+    @IBOutlet weak var ratingLabel: UILabel!
     
     let locationManager = CLLocationManager()
     
@@ -18,9 +23,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     
     var followMe = false
     
+    var hotel = Hotel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        nameLabel.text = hotel.name
+        image.image = UIImage(named: hotel.image)
+        ratingLabel.text = "Rating: \(hotel.rating)"
         
         locationManager.requestWhenInUseAuthorization()
         
@@ -34,23 +45,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         
         mapView.addGestureRecognizer(mapDragRecognizer)
         
-        let lat:CLLocationDegrees = 37.957666
-        let long:CLLocationDegrees = -122.0323133
-        
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(hotel.lat, hotel.long)
         
         let annotation = MKPointAnnotation()
         
         annotation.coordinate = location
-        annotation.title = "Title"
-        annotation.subtitle = "Subtitle"
+        annotation.title = hotel.name
+        annotation.subtitle = hotel.address
         
         mapView.addAnnotation(annotation)
         
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressAction))
-        longPress.minimumPressDuration = 2
-        mapView.addGestureRecognizer(longPress)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
         
+        mapView.setRegion(region, animated: true)
         mapView.delegate = self
     }
 
@@ -88,31 +96,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         }
     }
     
-    @objc func longPressAction(gestureRecongizer:UIGestureRecognizer){
-        print("gestureRecongizer")
-        
-        let touchPoint = gestureRecongizer.location(in: mapView)
-        
-        let newCoor:CLLocationCoordinate2D = mapView.convert(touchPoint,toCoordinateFrom: mapView)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = newCoor
-        annotation.title = "Title"
-        annotation.subtitle = "Subtitle"
-        
-        mapView.addAnnotation(annotation)
-    }
-    
     // MARK: -  MapView delegate
     // Вызывается когда нажали на метку на карте
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        // Получаем координаты метки
-        let location:CLLocation = CLLocation(latitude: (view.annotation?.coordinate.latitude)!, longitude: (view.annotation?.coordinate.longitude)!)
+//        // Получаем координаты метки
+//        let location:CLLocation = CLLocation(latitude: (view.annotation?.coordinate.latitude)!, longitude: (view.annotation?.coordinate.longitude)!)
         
-        // Считаем растояние до метки от нашего пользователя
-        let meters:CLLocationDistance = location.distance(from: userLocation)
-        distanceLabel.text = String(format: "Distance: %.2f m", meters)
+//        // Считаем растояние до метки от нашего пользователя
+//        let meters:CLLocationDistance = location.distance(from: userLocation)
+//        distanceLabel.text = String(format: "Distance: %.2f m", meters)
         
         
         // Routing - построение маршрута
