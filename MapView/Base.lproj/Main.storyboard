@@ -22,14 +22,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzT-IM-Mdd">
-                                <rect key="frame" x="260" y="753" width="163" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show My Location"/>
-                                <connections>
-                                    <action selector="showMyLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XZ3-Td-LiE"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehn-Cl-JbJ">
                                 <rect key="frame" x="60" y="121" width="272" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -38,25 +30,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dyn-pM-THQ">
-                                <rect key="frame" x="32" y="150" width="345" height="204"/>
+                                <rect key="frame" x="24" y="150" width="345" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWA-kD-rwZ">
-                                <rect key="frame" x="141" y="372" width="127" height="21"/>
+                                <rect key="frame" x="133" y="372" width="127" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzT-IM-Mdd">
+                                <rect key="frame" x="262" y="761" width="115" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show Route"/>
+                                <connections>
+                                    <action selector="showRoute:" destination="BYZ-38-t0r" eventType="touchDown" id="1KT-Kj-ZB3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OzT-IM-Mdd" secondAttribute="bottom" constant="30" id="0mi-o2-yCR"/>
-                            <constraint firstAttribute="trailing" secondItem="OzT-IM-Mdd" secondAttribute="trailing" constant="30" id="5Q4-U5-rRK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OzT-IM-Mdd" secondAttribute="bottom" constant="30" id="CYV-vP-mwC"/>
-                            <constraint firstItem="OzT-IM-Mdd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="30" id="QOV-QB-shE"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DCD-95-Erv"/>
                     <connections>
@@ -69,6 +64,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1585.4961832061067" y="12.67605633802817"/>
+        </scene>
+        <!--View Controller Full Map-->
+        <scene sceneID="Yw1-pJ-3Uo">
+            <objects>
+                <viewController storyboardIdentifier="fullMap" id="tMb-3J-5Nh" customClass="ViewControllerFullMap" customModule="MapView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="un2-S1-Ybw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7go-2i-0dn">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nXV-Jy-wOF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nXV-Jy-wOF" firstAttribute="trailing" secondItem="7go-2i-0dn" secondAttribute="trailing" id="2jg-Zi-bKn"/>
+                            <constraint firstItem="nXV-Jy-wOF" firstAttribute="bottom" secondItem="7go-2i-0dn" secondAttribute="bottom" id="TOq-Yj-9P1"/>
+                            <constraint firstItem="7go-2i-0dn" firstAttribute="leading" secondItem="nXV-Jy-wOF" secondAttribute="leading" id="V0a-fI-obS"/>
+                            <constraint firstItem="7go-2i-0dn" firstAttribute="top" secondItem="nXV-Jy-wOF" secondAttribute="top" id="gfz-RR-KAc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="7go-2i-0dn" id="tsy-gb-VzD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="keF-Oh-bcl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2349" y="13"/>
         </scene>
         <!--Hotels-->
         <scene sceneID="1Cc-IU-2kP">

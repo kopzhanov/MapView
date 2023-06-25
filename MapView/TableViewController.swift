@@ -75,8 +75,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "viewController") as! ViewController
-        
-        print("did select")
+       
         viewController.hotel = hotels[indexPath.row]
         
         navigationController?.show(viewController, sender: self)

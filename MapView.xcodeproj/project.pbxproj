@@ -15,6 +15,7 @@
 		3B257E002A41C9AB00754829 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B257DFE2A41C9AB00754829 /* LaunchScreen.storyboard */; };
 		3B257E0C2A471F7700754829 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B257E0B2A471F7700754829 /* TableViewController.swift */; };
 		3B257E0E2A471FBB00754829 /* Hotels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B257E0D2A471FBB00754829 /* Hotels.swift */; };
+		3B257E102A48709200754829 /* ViewControllerFullMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B257E0F2A48709200754829 /* ViewControllerFullMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3B257E012A41C9AB00754829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B257E0B2A471F7700754829 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3B257E0D2A471FBB00754829 /* Hotels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotels.swift; sourceTree = "<group>"; };
+		3B257E0F2A48709200754829 /* ViewControllerFullMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFullMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				3B257DFE2A41C9AB00754829 /* LaunchScreen.storyboard */,
 				3B257E012A41C9AB00754829 /* Info.plist */,
 				3B257E0D2A471FBB00754829 /* Hotels.swift */,
+				3B257E0F2A48709200754829 /* ViewControllerFullMap.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				3B257E0E2A471FBB00754829 /* Hotels.swift in Sources */,
 				3B257DF82A41C9AA00754829 /* ViewController.swift in Sources */,
+				3B257E102A48709200754829 /* ViewControllerFullMap.swift in Sources */,
 				3B257DF42A41C9AA00754829 /* AppDelegate.swift in Sources */,
 				3B257DF62A41C9AA00754829 /* SceneDelegate.swift in Sources */,
 				3B257E0C2A471F7700754829 /* TableViewController.swift in Sources */,
@@ -297,6 +301,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapView/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = test;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -325,6 +330,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapView/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = test;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
