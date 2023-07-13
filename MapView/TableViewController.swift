@@ -16,7 +16,7 @@ class TableViewController: UITableViewController {
     //var surnames = ["Kim", "Smith", "Will"]
     //var images = ["AprilKim", "JohnSmith", "ClaraWill"]
     
-    var hotels = [Hotel(name: "The Ritz Carlton, Almaty", image: "ritz", address: "Esentai Tower, 7/7 Al-Farabi Avenue, 050040 Almaty, Kazakhstan", rating: 9.1, lat: 43.2191, long: 76.9292),
+    var hotels = [Hotel(name: "The Ritz Carlton, Almaty", image: "ritz", address: "Esentai Tower, 7/7 Al-Farabi Avenue, 050040 Almaty, Kazakhstan", rating: 9.1, lat: 31.723610, long: -115.348625),
                   Hotel(name: "Marina Bay Sands", image: "marina", address: "10 Bayfront Avenue, Marina Bay, 018956 Singapore, Singapore", rating: 9.1, lat:1.2838, long: 103.8591),
                   Hotel(name: "Hyatt Regency Köln", image: "hyatt", address: "Kennedy-Ufer 2a, Deutz, 50679 Cologne, Germany", rating: 8.5,lat: 50.9404,long: 6.9692)]
     

@@ -25,6 +25,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        print(hotel.lat)
+        print(hotel.long)
+        
         nameLabel.text = hotel.name
         image.image = UIImage(named: hotel.image)
         ratingLabel.text = "Rating: \(hotel.rating)"

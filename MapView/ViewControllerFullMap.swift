@@ -14,23 +14,21 @@ class ViewControllerFullMap: UIViewController, CLLocationManagerDelegate, MKMapV
     var hotel = Hotel()
     let locationManager = CLLocationManager()
     var userLocation = CLLocation()
-    var ALMATY_LAT = 43.2220
-    var ALMATY_LONG = 76.8512
+//    var ALMATY_LAT = 31.723610
+//    var ALMATY_LONG = -115.348625
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        print(hotel.lat)
+        print(hotel.long)
         
         locationManager.requestWhenInUseAuthorization()
-        
         locationManager.delegate = self
-        
         locationManager.startUpdatingLocation()
         
         let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(hotel.lat, hotel.long)
-        
         let annotation = MKPointAnnotation()
         
         annotation.coordinate = location
@@ -39,17 +37,14 @@ class ViewControllerFullMap: UIViewController, CLLocationManagerDelegate, MKMapV
         
         mapView.addAnnotation(annotation)
         mapView.delegate = self
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0){
-            self.getDirections()
-        }
     }
     
-    func getDirections(){
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations[0]
         
         let request = MKDirections.Request()
                 // Source
-        let sourcePlaceMark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: ALMATY_LAT, longitude: ALMATY_LONG))
+        let sourcePlaceMark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude))
         request.source = MKMapItem(placemark: sourcePlaceMark)
                 // Destination
         let destPlaceMark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: hotel.lat, longitude: hotel.long))
@@ -67,9 +62,19 @@ class ViewControllerFullMap: UIViewController, CLLocationManagerDelegate, MKMapV
             let route = response.routes[0]
             self.mapView.addOverlay(route.polyline)
         }
-
-    }
         
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            // Настраиваем линию
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            // Цвет красный
+            renderer.strokeColor = UIColor.blue
+            // Ширина линии
+            renderer.lineWidth = 4.0
+            
+            return renderer
+        }
         /*
          // MARK: - Navigation
          
